@@ -23,6 +23,6 @@ WORKDIR /root/nginx-1.15.12
 RUN ./configure --add-module=/root/ngx_http_geoip2_module --with-http_ssl_module --with-http_secure_link_module --without-http_rewrite_module \
 && make && make install
 
-COPY /root/nginx/nginx.conf /usr/local/nginx/conf/nginx.conf
+COPY nginx.conf /usr/local/nginx/conf/nginx.conf
 
 CMD ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
