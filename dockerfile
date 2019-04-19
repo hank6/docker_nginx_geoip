@@ -7,8 +7,8 @@ RUN yum -y install gcc make wget vim git openssl openssl-devel PCRE zlib zlib-de
 WORKDIR /root
 RUN wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
 RUN wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
-RUN tar -xzf GeoLite2-City.mmdb.gz
-RUN tar -xzf GeoLite2-Country.mmdb.gz
+RUN gzip -d GeoLite2-City.mmdb.gz
+RUN gzip -d GeoLite2-Country.mmdb.gz
 RUN git clone https://github.com/leev/ngx_http_geoip2_module.git
 RUN wget http://nginx.org/download/nginx-1.15.12.tar.gz
 RUN tar -xzf nginx-1.15.12.tar.gz
